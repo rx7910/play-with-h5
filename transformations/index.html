@@ -38,6 +38,51 @@
             ctx.restore();
           }
         } 
+
+        // rotate
+
+        var context3 = document.getElementById('canvas3').getContext('2d');
+        context3.save();
+        // blue rect
+        context3.fillStyle = '#0095dd';
+        context3.fillRect(30, 30, 100, 100);
+        context3.rotate((Math.PI / 180) * 25);
+        // grey rect
+        context3.fillStyle = '#4d4e53';
+        context3.fillRect(30, 30, 100, 100);
+        context3.restore();
+
+        // right rectangles, rotate from rectangle center
+        // draw blue rect
+
+        context3.fillStyle = '#0095dd';
+        context3.fillRect(150, 30, 100, 100);
+        // translate to rectangle center: x = x + 0.5 * width, y = y + 0.5 * height
+        context3.translate(200, 80);
+        context3.rotate((Math.PI / 180) * 25);
+        context3.translate(-200, -80);
+
+        // draw grey rect
+        context3.fillStyle = '#4d4e53';
+        context3.fillRect(150, 30, 100, 100);
+
+
+        // scaling
+
+        var ctx4 = document.getElementById('canvas4').getContext('2d');
+
+          // draw a simple rectangle, but scale it.
+        ctx4.save();
+        ctx4.scale(10, 3);
+        ctx4.fillRect(1, 10, 10, 10);
+        ctx4.restore();
+
+        // mirror horizontally
+        ctx4.scale(-1, 1);
+        ctx4.font = '48px serif';
+        ctx4.fillText('MDN', -135, 120);
+
+
       }
     </script>
   </head>
@@ -49,6 +94,14 @@
     <div>
       <div> translate </div>
       <canvas id="canvas2" width="150" height="150"></canvas>
+    </div>
+    <div>
+      <div> rotate </div>
+      <canvas id="canvas3" width="300" height="300"></canvas>
+    </div>
+    <div>
+      <div> scaling </div>
+      <canvas id="canvas4" width="300" height="300"></canvas>
     </div>
   </body>
 </html>

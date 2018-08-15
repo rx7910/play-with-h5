@@ -60,7 +60,7 @@
   </script>
 </head>
 
-<body onload="updateSize();bindListener();">
+<body onload="updateSize();bindListener();initializeDropZone();">
   <div>
     <div>
       select files
@@ -91,6 +91,14 @@
   <div>
     <div> drag and drop </div>
     <div id="dropbox" style="width:100px;height:100px;text-align: center;line-height: 100px;background: pink;">drop zone</div>
- </div> </div>
+  </div>
+  <span>------------------------------------</span>
+  <div>
+    <input type="file" id="fileElem666" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
+    <a href="#" id="fileSelect666">Select some files</a> 
+    <div id="fileList666">
+      <p>No files selected!</p>
+    </div>
+  </div>
 </body>
 </html>
